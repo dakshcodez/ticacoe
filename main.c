@@ -13,7 +13,6 @@ int main(){
     int r2[3] = {0,0,0};
     int r3[3] = {0,0,0};
 
-    //
     int input_row = 0;
     int input_col = 0;
 
