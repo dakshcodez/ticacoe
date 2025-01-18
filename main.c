@@ -6,6 +6,7 @@ void getInput(int* row, int* col);
 void markInput(int* r1, int* r2, int* r3, int input_row, int input_col, int player);
 void printboard(int* r1, int* r2, int* r3);
 void printRow(int* row, int rowSize);
+bool checkDraw(int* r1, int* r2, int* r3);
 
 int main(){
     //board
@@ -42,6 +43,10 @@ int main(){
                 player = 1;
             }
         } 
+        if (checkDraw(r1,r2,r3) == true){
+            printf("That's a Draw.\n");
+            break;
+        }
     }
 
     return 0;
@@ -135,4 +140,23 @@ void printRow(int* row, int rowSize){
         printf("%c\t",row[i]);
     }
     printf("\n");
+}
+
+bool checkDraw(int* r1, int* r2, int* r3){
+    for (int i = 0; i < 3; i++){
+        if (r1[i] == 0){
+            return false;
+        }
+    }
+    for (int i = 0; i < 3; i++){
+        if (r2[i] == 0){
+            return false;
+        }
+    }
+    for (int i = 0; i < 3; i++){
+        if (r3[i] == 0){
+            return false;
+        }
+    }
+    return true;
 }
