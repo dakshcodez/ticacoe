@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include<stdbool.h>
 
 bool checkWin(int*  r1,int* r2,int* r3);
@@ -7,6 +8,7 @@ void markInput(int* r1, int* r2, int* r3, int input_row, int input_col, int play
 void printboard(int* r1, int* r2, int* r3);
 void printRow(int* row, int rowSize);
 bool checkDraw(int* r1, int* r2, int* r3);
+void clearScreen();
 
 int main(){
     //board
@@ -23,16 +25,18 @@ int main(){
     //game loop
 
     while (true){
-        printboard(r1,r2,r3);
         printf("Player %d's turn\n", player);
+        printboard(r1,r2,r3);
+        printf("\n\n\n");
         getInput(&input_row, &input_col);
-        
         markInput(r1,r2,r3,input_row,input_col,player);
         
         //checking win
 
         if (checkWin(r1,r2,r3) == true){
-            printf("player %d won the game.\n", player);
+            clearScreen();
+            printf("\t\t\t\t      PLAYER %d WON THE GAME!!!!!!\n", player);
+            printf("\n\n");
             printboard(r1,r2,r3);
             break;
         } else{
@@ -47,8 +51,8 @@ int main(){
             printf("That's a Draw.\n");
             break;
         }
+        clearScreen();
     }
-
     return 0;
 }
 
@@ -162,4 +166,12 @@ bool checkDraw(int* r1, int* r2, int* r3){
         }
     }
     return true;
+}
+
+void clearScreen() {
+    #ifdef _WIN32
+        system("cls");  // Windows
+    #else
+        system("clear");  // Linux/macOS
+    #endif
 }
