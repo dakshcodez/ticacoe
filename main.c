@@ -130,13 +130,14 @@ void markInput(int* r1, int* r2, int* r3, int input_row, int input_col, int play
 
 void printboard(int* r1, int* r2, int* r3){
     printRow(r1,3);
-    printf("------------------\n");
+    printf("\t\t\t\t\t------------------\n");
     printRow(r2,3);
-    printf("------------------\n");
+    printf("\t\t\t\t\t------------------\n");
     printRow(r3,3);
 }
 
 void printRow(int* row, int rowSize){
+    printf("\t\t\t\t\t");
     for (int i = 0; i < rowSize; i++){
         printf("%c\t",row[i]);
     }
