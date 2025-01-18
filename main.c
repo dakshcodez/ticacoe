@@ -23,12 +23,11 @@ int main(){
     //game loop
 
     while (true){
+        printboard(r1,r2,r3);
         printf("Player %d's turn\n", player);
         getInput(&input_row, &input_col);
         
         markInput(r1,r2,r3,input_row,input_col,player);
-
-        printboard(r1,r2,r3);
         
         //checking win
 
@@ -131,7 +130,9 @@ void markInput(int* r1, int* r2, int* r3, int input_row, int input_col, int play
 
 void printboard(int* r1, int* r2, int* r3){
     printRow(r1,3);
+    printf("------------------\n");
     printRow(r2,3);
+    printf("------------------\n");
     printRow(r3,3);
 }
 
