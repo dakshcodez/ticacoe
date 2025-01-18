@@ -32,7 +32,8 @@ int main(){
         //checking win
 
         if (checkWin(r1,r2,r3) == true){
-            printf("player %d won the game.", player);
+            printf("player %d won the game.\n", player);
+            printboard(r1,r2,r3);
             break;
         } else{
             if (player == 1){
