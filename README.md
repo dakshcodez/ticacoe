@@ -8,3 +8,4 @@ tic tac toe in C
 
 ## PROBLEMS:
 - [ ] inputs overwrite eachother
+- [ ] input row and column can exceed 3
