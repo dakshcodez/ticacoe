@@ -35,9 +35,10 @@ int main(){
 
         if (checkWin(r1,r2,r3) == true){
             clearScreen();
-            printf("\t\t\t\t      PLAYER %d WON THE GAME!!!!!!\n", player);
+            printf("\t\t\t\t        PLAYER %d WON THE GAME!!!!!!\n", player);
             printf("\n\n");
             printboard(r1,r2,r3);
+            printf("\n\n");
             break;
         } else{
             if (player == 1){
@@ -48,7 +49,11 @@ int main(){
             }
         } 
         if (checkDraw(r1,r2,r3) == true){
-            printf("That's a Draw.\n");
+            clearScreen();
+            printf("\t\t\t\t\t   THAT'S A DRAW!!!!!\n", player);
+            printf("\n\n");
+            printboard(r1,r2,r3);
+            printf("\n\n");
             break;
         }
         clearScreen();
@@ -135,16 +140,16 @@ void markInput(int* r1, int* r2, int* r3, int input_row, int input_col, int play
 
 void printboard(int* r1, int* r2, int* r3){
     printRow(r1,3);
-    printf("\t\t\t\t\t------------------\n");
+    printf("\t\t\t\t\t-------|-------|-------\n");
     printRow(r2,3);
-    printf("\t\t\t\t\t------------------\n");
+    printf("\t\t\t\t\t-------|-------|-------\n");
     printRow(r3,3);
 }
 
 void printRow(int* row, int rowSize){
     printf("\t\t\t\t\t");
     for (int i = 0; i < rowSize; i++){
-        printf("%c\t",row[i]);
+        printf("   %c\t",row[i]);
     }
     printf("\n");
 }
