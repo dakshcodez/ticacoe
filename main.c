@@ -42,7 +42,7 @@ int main(){
             break;
         } else{
             if (player == 1){
-                player = 0;
+                player = 2;
             }
             else{
                 player = 1;
