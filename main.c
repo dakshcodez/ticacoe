@@ -9,6 +9,7 @@ void printboard(int* r1, int* r2, int* r3);
 void printRow(int* row, int rowSize);
 bool checkDraw(int* r1, int* r2, int* r3);
 void clearScreen();
+bool IsInputValid(int input_row, int input_col);
 
 int main(){
     //board
@@ -28,7 +29,18 @@ int main(){
         printf("Player %d's turn\n", player);
         printboard(r1,r2,r3);
         printf("\n\n\n");
-        getInput(&input_row, &input_col);
+
+        while (true){
+            getInput(&input_row, &input_col);
+            if (IsInputValid(input_row, input_col) == true){
+                break;
+            }
+            clearScreen();
+            printf("WARNING: PROVIDE VALID ROW AND COLUMN NUMBER!!!\n\n\n");
+            printf("Player %d's turn\n", player);
+            printboard(r1,r2,r3);
+        }
+
         markInput(r1,r2,r3,input_row,input_col,player);
         
         //checking win
@@ -179,4 +191,13 @@ void clearScreen() {
     #else
         system("clear");  // Linux/macOS
     #endif
+}
+
+bool IsInputValid(int input_row, int input_col){
+    if (input_row <= 3 && input_col <= 3){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
